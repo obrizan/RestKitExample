@@ -26,6 +26,26 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+	// Настройка логирования действий Ресткита
+    RKLogConfigureByName("RestKit/Network*", RKLogLevelTrace);
+    RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
+
+	// Инициализация Ресткита
+	RKObjectManager* objectManager = [RKObjectManager managerWithBaseURLString:@"http://search.twitter.com"];
+
+	// Показывать индикатор активности сети на статус-баре
+    objectManager.client.requestQueue.showsNetworkActivityIndicatorWhenBusy = YES;
+	
+	// Настраиваем структуру объектов
+	RKObjectMapping *tweetMapping = [RKObjectMapping mappingForClass:[NSMutableDictionary class]];
+	[tweetMapping mapAttributes:@"from_user", @"profile_image_url", @"text", nil];
+	
+	RKObjectMapping* searchResultMapping = [RKObjectMapping mappingForClass:[NSMutableDictionary class]];
+	[searchResultMapping hasMany:@"results" withMapping:tweetMapping];
+	
+	// Register our mappings with the provider using a resource path pattern
+    [objectManager.mappingProvider setObjectMapping:searchResultMapping forResourcePathPattern:@"/search.json"];
+
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
 

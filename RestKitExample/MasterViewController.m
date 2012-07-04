@@ -3,12 +3,14 @@
 //  RestKitExample
 //
 //  Created by Volodymyr Obrizan on 04.07.12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 Design and Test Lab. All rights reserved.
 //
 
 #import "MasterViewController.h"
 
 #import "DetailViewController.h"
+
+#import <RestKit/RKErrorMessage.h>
 
 @implementation MasterViewController
 
@@ -41,6 +43,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+	
+	[RKObjectManager.sharedManager loadObjectsAtResourcePath:@"/search.json?q=#habr" delegate:self];
 }
 
 - (void)viewDidUnload
@@ -149,4 +153,30 @@
     [self.navigationController pushViewController:self.detailViewController animated:YES];
 }
 
+
+////////////////////////////////////////////////////////////////////////////////
+
+
+#pragma mark - Object Loader Delegate
+
+- (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
+{
+    NSArray *errorMessages = [[error userInfo] objectForKey:RKObjectMapperErrorObjectsKey];
+    RKErrorMessage *errorMessage = [errorMessages objectAtIndex:0]; // First and only object in your case.
+    NSString *message = [errorMessage errorMessage];
+    NSInteger code = [[objectLoader response] statusCode];
+    NSLog(@"ERROR: [%d] %@", code, message); // => ERROR: [401] Unauthorized
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+
+- (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects
+{
+	
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
 @end

@@ -124,13 +124,6 @@
 		BC02371C15A44E1D006E7A35 = {
 			isa = PBXGroup;
 			children = (
-				BC02377315A45322006E7A35 /* CoreData.framework */,
-				BC02377015A45296006E7A35 /* QuartzCore.framework */,
-				BC02376E15A45285006E7A35 /* libxml2.dylib */,
-				BC02376C15A4527A006E7A35 /* SystemConfiguration.framework */,
-				BC02376A15A4526E006E7A35 /* MobileCoreServices.framework */,
-				BC02376815A45261006E7A35 /* Security.framework */,
-				BC02376615A451F6006E7A35 /* CFNetwork.framework */,
 				BC02374E15A44F9B006E7A35 /* RestKit.xcodeproj */,
 				BC02373115A44E1D006E7A35 /* RestKitExample */,
 				BC02372A15A44E1D006E7A35 /* Frameworks */,
@@ -149,9 +142,16 @@
 		BC02372A15A44E1D006E7A35 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				BC02372B15A44E1D006E7A35 /* UIKit.framework */,
-				BC02372D15A44E1D006E7A35 /* Foundation.framework */,
+				BC02376615A451F6006E7A35 /* CFNetwork.framework */,
+				BC02377315A45322006E7A35 /* CoreData.framework */,
 				BC02372F15A44E1D006E7A35 /* CoreGraphics.framework */,
+				BC02372D15A44E1D006E7A35 /* Foundation.framework */,
+				BC02376E15A45285006E7A35 /* libxml2.dylib */,
+				BC02376A15A4526E006E7A35 /* MobileCoreServices.framework */,
+				BC02377015A45296006E7A35 /* QuartzCore.framework */,
+				BC02376815A45261006E7A35 /* Security.framework */,
+				BC02376C15A4527A006E7A35 /* SystemConfiguration.framework */,
+				BC02372B15A44E1D006E7A35 /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -161,12 +161,12 @@
 			children = (
 				BC02373A15A44E1E006E7A35 /* AppDelegate.h */,
 				BC02373B15A44E1E006E7A35 /* AppDelegate.m */,
-				BC02373D15A44E1E006E7A35 /* MasterViewController.h */,
-				BC02373E15A44E1E006E7A35 /* MasterViewController.m */,
 				BC02374015A44E1E006E7A35 /* DetailViewController.h */,
 				BC02374115A44E1E006E7A35 /* DetailViewController.m */,
-				BC02374315A44E1E006E7A35 /* MasterViewController.xib */,
 				BC02374615A44E1E006E7A35 /* DetailViewController.xib */,
+				BC02373D15A44E1E006E7A35 /* MasterViewController.h */,
+				BC02373E15A44E1E006E7A35 /* MasterViewController.m */,
+				BC02374315A44E1E006E7A35 /* MasterViewController.xib */,
 				BC02373215A44E1D006E7A35 /* Supporting Files */,
 			);
 			path = RestKitExample;

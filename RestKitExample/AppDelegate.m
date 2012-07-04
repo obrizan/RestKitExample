@@ -3,12 +3,14 @@
 //  RestKitExample
 //
 //  Created by Volodymyr Obrizan on 04.07.12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 Design and Test Lab. All rights reserved.
 //
 
 #import "AppDelegate.h"
 
 #import "MasterViewController.h"
+
+#import <RestKit/RestKit.h>
 
 @implementation AppDelegate
 

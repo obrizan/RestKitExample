@@ -24,15 +24,15 @@
 		BC02372B15A44E1D006E7A35 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BC02372D15A44E1D006E7A35 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BC02372F15A44E1D006E7A35 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		BC02373315A44E1D006E7A35 /* RestKitExample-Info.plist */ = {isa = PBXFileReference; path = "RestKitExample-Info.plist"; sourceTree = "<group>"; };
+		BC02373315A44E1D006E7A35 /* RestKitExample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RestKitExample-Info.plist"; sourceTree = "<group>"; };
 		BC02373515A44E1D006E7A35 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BC02373715A44E1E006E7A35 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		BC02373915A44E1E006E7A35 /* RestKitExample-Prefix.pch */ = {isa = PBXFileReference; path = "RestKitExample-Prefix.pch"; sourceTree = "<group>"; };
-		BC02373A15A44E1E006E7A35 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		BC02373915A44E1E006E7A35 /* RestKitExample-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RestKitExample-Prefix.pch"; sourceTree = "<group>"; };
+		BC02373A15A44E1E006E7A35 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BC02373B15A44E1E006E7A35 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		BC02373D15A44E1E006E7A35 /* MasterViewController.h */ = {isa = PBXFileReference; path = MasterViewController.h; sourceTree = "<group>"; };
+		BC02373D15A44E1E006E7A35 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
 		BC02373E15A44E1E006E7A35 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
-		BC02374015A44E1E006E7A35 /* DetailViewController.h */ = {isa = PBXFileReference; path = DetailViewController.h; sourceTree = "<group>"; };
+		BC02374015A44E1E006E7A35 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		BC02374115A44E1E006E7A35 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		BC02374415A44E1E006E7A35 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MasterViewController.xib; sourceTree = "<group>"; };
 		BC02374715A44E1E006E7A35 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DetailViewController.xib; sourceTree = "<group>"; };
@@ -133,6 +133,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = "Design and Test Lab";
 			};
 			buildConfigurationList = BC02372115A44E1D006E7A35 /* Build configuration list for PBXProject "RestKitExample" */;
 			compatibilityVersion = "Xcode 3.2";

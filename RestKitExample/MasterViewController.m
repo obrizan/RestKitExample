@@ -10,17 +10,21 @@
 
 #import "DetailViewController.h"
 
-#import <RestKit/RKErrorMessage.h>
+#import <RestKit/RestKit.h>
 
 @implementation MasterViewController
 
-@synthesize detailViewController = _detailViewController;
+@synthesize detailViewController	= _detailViewController;
+@synthesize tweets					= _tweets;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
 		self.title = NSLocalizedString(@"Master", @"Master");
+
+		// При создания контроллера список твитов пуст
+		self.tweets = NSArray.array;
     }
     return self;
 }
@@ -37,6 +41,10 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
+
+////////////////////////////////////////////////////////////////////////////////
+
+
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
@@ -44,8 +52,19 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 	
-	[RKObjectManager.sharedManager loadObjectsAtResourcePath:@"/search.json?q=#habr" delegate:self];
+	
+	// Создаем словарь с параметрами: ?q=#habr
+	NSDictionary *queryParams = [NSDictionary dictionaryWithObject:@"#habr" forKey:@"q"];
+	
+	// Формируем адрес к вебсервису и выполняем асинхронный GET-запрос. 
+	// RestKit вызовет методы делегата у текущего класса в случае успешного или неуспешного результата
+    NSString *resourcePath = [@"/search.json" stringByAppendingQueryParameters:queryParams];
+	[RKObjectManager.sharedManager loadObjectsAtResourcePath:resourcePath delegate:self];
 }
+
+
+////////////////////////////////////////////////////////////////////////////////
+
 
 - (void)viewDidUnload
 {
@@ -86,10 +105,18 @@
 	return 1;
 }
 
+
+////////////////////////////////////////////////////////////////////////////////
+
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	return 1;
+	return self.tweets.count;
 }
+
+
+////////////////////////////////////////////////////////////////////////////////
+
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -103,7 +130,7 @@
     }
 
 	// Configure the cell.
-	cell.textLabel.text = NSLocalizedString(@"Detail", @"Detail");
+	cell.textLabel.text = [[self.tweets objectAtIndex:indexPath.row] objectForKey:@"text"];
     return cell;
 }
 
@@ -162,10 +189,6 @@
 - (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
 {
     NSArray *errorMessages = [[error userInfo] objectForKey:RKObjectMapperErrorObjectsKey];
-    RKErrorMessage *errorMessage = [errorMessages objectAtIndex:0]; // First and only object in your case.
-    NSString *message = [errorMessage errorMessage];
-    NSInteger code = [[objectLoader response] statusCode];
-    NSLog(@"ERROR: [%d] %@", code, message); // => ERROR: [401] Unauthorized
 }
 
 
@@ -174,9 +197,12 @@
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects
 {
-	
+	NSDictionary *searchResults = [objects objectAtIndex:0];
+	self.tweets = [searchResults objectForKey:@"results"];
+	[self.tableView reloadData];
 }
 
 
 ////////////////////////////////////////////////////////////////////////////////
+
 @end

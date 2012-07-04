@@ -443,6 +443,7 @@
 				BC02374D15A44E1E006E7A35 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

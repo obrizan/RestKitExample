@@ -15,4 +15,7 @@
 
 @property (strong, nonatomic) DetailViewController *detailViewController;
 
+// Список твитов
+@property (nonatomic, retain) NSArray *tweets;
+
 @end

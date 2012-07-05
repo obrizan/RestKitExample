@@ -188,6 +188,7 @@
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
 {
+	// Этот метод делегата срабатывает, если вебсервис вернул ошибку: 4хх, 5хх
     NSArray *errorMessages = [[error userInfo] objectForKey:RKObjectMapperErrorObjectsKey];
 }
 
@@ -197,12 +198,23 @@
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObjects:(NSArray *)objects
 {
-	NSDictionary *searchResults = [objects objectAtIndex:0];
-	self.tweets = [searchResults objectForKey:@"results"];
-	[self.tableView reloadData];
+	// Этот метод делегата срабатывает, когда вебсервис успешно вернул результат.
+	// Результат возвращается в виде списка объектов, даже если объектов нет или он один.
 }
 
 
 ////////////////////////////////////////////////////////////////////////////////
+
+
+- (void)objectLoader:(RKObjectLoader *)objectLoader didLoadObject:(id)object
+{
+	// Этот метод делегата срабатывает, когда вебсервис успешно вернул результат
+	// Если результат -- список объектов, то будет возвращен самый первый.
+	// Удобно использовать, если мы точно уверены, что в ответе будет только один результат
+	
+	// Сохраняем список твитов и обновляем таблицу
+	self.tweets = [object objectForKey:@"results"];
+	[self.tableView reloadData];
+}
 
 @end

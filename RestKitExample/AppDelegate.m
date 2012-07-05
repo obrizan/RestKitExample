@@ -46,6 +46,7 @@
 	
 	// Настраиваем структуру объектов
 	// Первый объект: твит. Нам интересны только свойства: имя пользователя, аватарка, текст
+	// См.: https://dev.twitter.com/docs/platform-objects/tweets
 	RKObjectMapping *tweetMapping = [RKObjectMapping mappingForClass:[NSMutableDictionary class]];
 	[tweetMapping mapAttributes:@"from_user", @"profile_image_url", @"text", nil];
 	

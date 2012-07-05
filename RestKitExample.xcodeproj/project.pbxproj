@@ -25,6 +25,7 @@
 		BC02377115A45296006E7A35 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC02377015A45296006E7A35 /* QuartzCore.framework */; };
 		BC02377215A452A8006E7A35 /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC02375A15A44F9B006E7A35 /* libRestKit.a */; };
 		BC02377415A45322006E7A35 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC02377315A45322006E7A35 /* CoreData.framework */; };
+		BC5FA9FF15A592C200EFB2BD /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = BC5FA9FE15A592C200EFB2BD /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +98,7 @@
 		BC02376E15A45285006E7A35 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		BC02377015A45296006E7A35 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		BC02377315A45322006E7A35 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		BC5FA9FE15A592C200EFB2BD /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 		BC02371C15A44E1D006E7A35 = {
 			isa = PBXGroup;
 			children = (
+				BC5FA9FE15A592C200EFB2BD /* README.md */,
 				BC02374E15A44F9B006E7A35 /* RestKit.xcodeproj */,
 				BC02373115A44E1D006E7A35 /* RestKitExample */,
 				BC02372A15A44E1D006E7A35 /* Frameworks */,
@@ -294,6 +297,7 @@
 				BC02373615A44E1D006E7A35 /* InfoPlist.strings in Resources */,
 				BC02374515A44E1E006E7A35 /* MasterViewController.xib in Resources */,
 				BC02374815A44E1E006E7A35 /* DetailViewController.xib in Resources */,
+				BC5FA9FF15A592C200EFB2BD /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
